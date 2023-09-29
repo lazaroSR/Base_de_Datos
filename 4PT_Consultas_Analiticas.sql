@@ -76,11 +76,11 @@ insert into item  (id, orden_id , producto_id, cantidad, monto_venta) values
 	(71,15,9,6,150),(72,15,5,9,270);
 
 --Obtener el precio mínimo, precio máximo y precio promedio de todos los productos.
-	select min(precio_unitario) as precio_minimo, max(precio_unitario) as precio_maximo, avg(precio_unitario) as precio_promedio  
-	from producto p ;
+select min(precio_unitario) as precio_minimo, max(precio_unitario) as precio_maximo, avg(precio_unitario) as precio_promedio  
+from producto p ;
 
 -- Calcular la cantidad total de productos en stock por sucursal.
-select sucursal_id , sum(producto_id) as cantidad_total
+select sucursal_id , count(producto_id) as cantidad_total
 from stock s 
 group by sucursal_id
 order by sucursal_id asc;
